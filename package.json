@@ -1,19 +1,30 @@
 {
   "name": "koha-plugin-acq2.0",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "plugin": {
+    "module": "Koha::Plugin::Acquire",
+    "pm_path": "Koha/Plugin/Acquire.pm"
+  },
+  "version": "0.0.0",
+  "previous_version": "0.0.0",
   "scripts": {
-    "release": "bash ./release_kpz.sh",
     "build": "webpack --mode production",
     "dev": "webpack --mode development --watch",
     "cy:ui": "cypress open",
     "cy:cli": "cypress run -q",
-    "test": "docker exec -it kohadev-koha-1 sh -c \"prove /kohadevbox/plugins/koha-plugin-acq2/t/**/*\""
+    "test": "docker exec -it kohadev-koha-1 sh -c \"prove /kohadevbox/plugins/koha-plugin-acq2/t/**/*\"",
+    "version:patch": "node increment_version.js patch | cat",
+    "version:minor": "node increment_version.js minor | cat",
+    "version:major": "node increment_version.js major | cat",
+    "release:patch": "node check_release_ready.js && node increment_version.js patch | cat && PLUGIN_FILE=$(node -p 'require(\"./package.json\").plugin.pm_path') && git add package.json \"$PLUGIN_FILE\" CHANGELOG.md && git commit -m 'chore: bump version' && VERSION=$(node -p 'require(\"./package.json\").version') && git tag -a v$VERSION -m \"Release v$VERSION\" && node ensure_workflows_enabled.js && git push origin main --follow-tags",
+    "release:minor": "node check_release_ready.js && node increment_version.js minor | cat && PLUGIN_FILE=$(node -p 'require(\"./package.json\").plugin.pm_path') && git add package.json \"$PLUGIN_FILE\" CHANGELOG.md && git commit -m 'chore: bump version' && VERSION=$(node -p 'require(\"./package.json\").version') && git tag -a v$VERSION -m \"Release v$VERSION\" && node ensure_workflows_enabled.js && git push origin main --follow-tags",
+    "release:major": "node check_release_ready.js && node increment_version.js major | cat && PLUGIN_FILE=$(node -p 'require(\"./package.json\").plugin.pm_path') && git add package.json \"$PLUGIN_FILE\" CHANGELOG.md && git commit -m 'chore: bump version' && VERSION=$(node -p 'require(\"./package.json\").version') && git tag -a v$VERSION -m \"Release v$VERSION\" && node ensure_workflows_enabled.js && git push origin main --follow-tags"
   },
+  "description": "",
+  "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.0",
     "@fortawesome/free-solid-svg-icons": "^6.0.0",

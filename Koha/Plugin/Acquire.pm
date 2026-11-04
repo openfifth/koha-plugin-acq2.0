@@ -70,7 +70,7 @@ BEGIN {
 
     Koha::Database->schema( { new => 1 } );
 }
-our $VERSION = "0.0";
+our $VERSION         = '0.0.0';
 
 our $metadata = {
     name            => 'Acquisitions 2.0',
