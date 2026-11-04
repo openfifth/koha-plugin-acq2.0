@@ -12,3 +12,7 @@ npm run release
 ```
 
 N.B. The release script will check the release version of your plugin file so make sure to increment this every time you run a release.
+
+## Licence
+
+This plugin is licensed under the GNU Affero General Public License v3.0 or later (`AGPL-3.0-or-later`). See [LICENSE](LICENSE).
