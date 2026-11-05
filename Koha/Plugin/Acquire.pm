@@ -70,13 +70,13 @@ BEGIN {
 
     Koha::Database->schema( { new => 1 } );
 }
-our $VERSION         = '0.0.0';
+our $VERSION         = '0.0.1';
 
 our $metadata = {
     name            => 'Acquisitions 2.0',
     author          => 'PTFS Europe Ltd',
     date_authored   => '2023-12-08',
-    date_updated    => '2023-12-08',
+    date_updated    => '2026-11-05',
     minimum_version => '22.11.00.000',
     maximum_version => undef,
     version         => $VERSION,

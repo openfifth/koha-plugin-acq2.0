@@ -7,10 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.1] - 2026-11-05
+
 ### Changed
 
 - Adopt the plugin template's CI and release tooling: `npm run release:*` scripts and preflight, `DEVELOPMENT.md`, a `t/00-load.t` smoke test and the GitHub Actions workflow (regenerated from the template).
 - Remove the legacy zip-based release tooling and committed build artefacts (`Koha/.DS_Store`, `Koha/Plugin/.DS_Store`, `checkVersionNumber.js`, `release_kpz.sh`); KPZ files are now built by CI on release tags.
 - Normalise the plugin version `0.0` to semantic version `0.0.0` (the same ordering under Perl `version` comparison) so the release tooling can bump it.
 
-[Unreleased]: https://github.com/openfifth/koha-plugin-acq2.0/compare/v0.0.0...HEAD
+[Unreleased]: https://github.com/openfifth/koha-plugin-acq2.0/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/openfifth/koha-plugin-acq2.0/compare/v0.0.0...v0.0.1
